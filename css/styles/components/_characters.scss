@@ -1,0 +1,507 @@
+@use "../abstracts" as *;
+
+/* characters Page*/
+#Characters {
+    margin: 100px 0px 0px 0px;
+    @include respond(350) {
+        margin: 70px 0px;
+    }
+    text-align: center;
+    overflow: hidden;
+
+    /* intro paragraph*/
+    .sparkle {
+        position: relative;
+        width: 50%;
+        margin: auto;
+        padding: 18px 28px;
+        border-radius: 14px;
+        @include respond(350) {
+            padding: 15px;
+            width: 90%;
+        }
+        @include respond(650) {
+            width: 65%;
+        }
+        @include respond(850) {
+            width: 50%;
+        }
+        @include respond(1250) {
+            margin: 150px auto 0px;
+        }
+        z-index: 1;
+        p {
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 15px;
+            max-width: 750px;
+            text-align: start;
+            @include respond(350) {
+                font-size: 12px;
+            }
+            @include respond(850) {
+                font-size: 13px;
+            }
+            margin: auto;
+            line-height: 1.9;
+            letter-spacing: 0.3px;
+        }
+    }
+
+    /* main title*/
+    .title {
+        font-size: 2.5rem;
+        color: var(--charcters-color);
+        margin: 60px auto;
+        text-shadow: 0 0 10px #9e7bff;
+        @include respond(350) {
+            font-size: 25px;
+        }
+        @include respond(650) {
+            font-size: 30px;
+        }
+    }
+
+    /* list of families*/
+    ul.families {
+        list-style: none;
+        @include flex;
+        gap: 25px;
+        padding: 0;
+        @include respond(350) {
+            gap: 10px;
+        }
+        @include respond(650) {
+            gap: 23px;
+        }
+        margin-bottom: 60px;
+        li {
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-color);
+            backdrop-filter: blur(6px);
+            transition: all 0.4s ease;
+            position: relative;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 100px;
+            border: none;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            span {
+                z-index: 4;
+            }
+            @include respond(350) {
+                font-size: 12px;
+                width: fit-content;
+            }
+            @include respond(650) {
+                font-size: 14px;
+            }
+            img {
+                opacity: 0;
+                transition-duration: 0.2s;
+                z-index: -1;
+            }
+            img:nth-of-type(1) {
+                @include distance($w: 20px, $h: 20px);
+                @include position($p: absolute, $l: 10%, $t: 0%);
+            }
+            img:nth-of-type(2) {
+                @include distance($w: 30px, $h: 30px);
+                @include position($p: absolute, $l: 50%, $t: 50%);
+            }
+            img:nth-of-type(3) {
+                @include distance($w: 40px, $h: 40px);
+                @include position($p: absolute, $b: 0%, $r: 10%);
+            }
+            img:nth-of-type(4) {
+                @include distance($w: 25px, $h: 30px);
+                @include position($p: absolute, $r: 40%, $t: 0%);
+            }
+            img:nth-of-type(5) {
+                @include distance($w: 30px, $h: 35px);
+                @include position($p: absolute, $b: 0%, $l: 10%);
+            }
+
+            &:hover,
+            &.active {
+                background: var(--main-color);
+                transform: translateY(-2px);
+                color: var(--text-color);
+                span {
+                    filter: drop-shadow(0px 0px 10px #fff);
+                }
+                img {
+                    opacity: 1;
+                }
+                img:nth-of-type(1) {
+                    @include position($l: 10%, $t: -40%);
+                }
+                img:nth-of-type(2) {
+                    @include position($t: 100%, $r: 50%);
+                }
+                img:nth-of-type(3) {
+                    @include position($t: 20%, $r: -15%);
+                }
+                img:nth-of-type(4) {
+                    @include position($r: 40%, $t: -70%);
+                    @include respond(350) {
+                        @include position($r: 30%, $t: -45%);
+                    }
+                    @include respond(850) {
+                        @include position($r: 20%, $t: -70%);
+                    }
+                }
+                img:nth-of-type(5) {
+                    @include position($l: -15%, $b: -30%);
+                }
+            }
+        }
+    }
+
+    /* characters */
+    .container .row .character {
+        @include respond(350) {
+            padding: 0px;
+        }
+        .item {
+            width: fit-content;
+            margin: auto;
+            animation: moons 0.8s ease;
+            p {
+                width: fit-content;
+                margin: auto;
+                color: var(--charcters-color);
+                font-weight: 500;
+                letter-spacing: 1px;
+                opacity: 0;
+                transition-duration: 0.5s;
+            }
+            .img {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                filter: brightness(0.8);
+                cursor: pointer;
+                transition: all 0.4s ease-in-out;
+                &:hover {
+                    transform: scale(1.08);
+                    filter: drop-shadow(0 0 20px rgba(180, 130, 255, 0.8));
+                }
+                &:hover + p {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.Leora .item .img,
+        &.ليورا .item .img {
+            @include respond(350) {
+                width: 235px !important;
+                height: 235px !important;
+            }
+            @include respond(650) {
+                margin-top: 25px !important;
+            }
+        }
+
+        &.Melissa .item .img,
+        &.ميليسا .item .img {
+            @include respond(350) {
+                width: 180px !important;
+                height: 180px !important;
+            }
+        }
+
+        &.Valerio .item .img,
+        &.فاليرو .item .img {
+            @include respond(350) {
+                width: 270px !important;
+                height: 270px !important;
+            }
+        }
+
+        &.Tara .item .img,
+        &.تارا .item .img {
+            @include respond(350) {
+                width: 220px !important;
+                height: 220px !important;
+            }
+            @include respond(850) {
+                margin-top: 25px !important;
+            }
+        }
+
+        &.Mark .item .img,
+        &.مارك .item .img {
+            @include respond(350) {
+                width: 240px !important;
+                height: 240px !important;
+            }
+            @include respond(650) {
+                margin-top: 10px !important;
+            }
+        }
+
+        &.Mira .item .img,
+        &.ميرا .item .img {
+            @include respond(350) {
+                width: 260px !important;
+                height: 260px !important;
+            }
+        }
+
+        &.Aaron .item .img,
+        &.آرون .item .img {
+            @include respond(350) {
+                width: 190px !important;
+                height: 190px !important;
+            }
+            @include respond(650) {
+                margin-top: 35px !important;
+            }
+        }
+
+        &.Kiara.Maddox .item .img,
+        &.كيارا.مادوكس .item .img {
+            @include respond(350) {
+                width: 240px !important;
+                height: 240px !important;
+            }
+        }
+
+        &.Chris .item .img,
+        &.كريس .item .img {
+            @include respond(350) {
+                width: 165px !important;
+                height: 165px !important;
+            }
+            @include respond(650) {
+                margin-top: 55px !important;
+            }
+        }
+
+        &.Nicholas .item .img,
+        &.نيكولاس .item .img {
+            @include respond(350) {
+                width: 270px !important;
+                height: 270px !important;
+            }
+            @include respond(650) {
+                margin-top: 20px !important;
+            }
+        }
+
+        &.Florence .item .img,
+        &.فلورنس .item .img {
+            @include respond(350) {
+                width: 210px !important;
+                height: 210px !important;
+            }
+        }
+
+        &.Harvey .item .img,
+        &.هارفي .item .img {
+            @include respond(350) {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            @include respond(650) {
+                margin-top: 45px !important;
+            }
+        }
+
+        &.Mia .item .img,
+        &.ميا .item .img {
+            @include respond(350) {
+                width: 230px !important;
+                height: 230px !important;
+            }
+            @include respond(650) {
+                margin-top: 10px !important;
+            }
+            @include respond(850) {
+                margin-top: 55px !important;
+            }
+        }
+
+        &.Victoria .item .img,
+        &.فيكتوريا .item .img {
+            @include respond(350) {
+                width: 250px !important;
+                height: 250px !important;
+            }
+        }
+
+        &.Milan .item,
+        &.ميلان .item {
+            transform: translateY(-20px);
+            P {
+                @include respond(350) {
+                    transform: translateY(-55px) !important;
+                }
+            }
+            .img {
+                @include respond(350) {
+                    width: 200px !important;
+                    height: 200px !important;
+                    transform: translateY(-40px);
+                }
+                @include respond(850) {
+                    transform: translateY(35px);
+                }
+            }
+        }
+
+        &.Kiara .item .img,
+        &.كيارا .item .img {
+            @include respond(350) {
+                width: 240px !important;
+                height: 240px !important;
+            }
+            @include respond(650) {
+                transform: translateY(10px);
+            }
+        }
+
+        &.Ethan .item .img,
+        &.إيثان .item .img {
+            @include respond(350) {
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+
+        &.Olivia .item .img,
+        &.أوليفيا .item .img {
+            @include respond(350) {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            @include respond(650) {
+                transform: translateY(10px);
+            }
+        }
+
+        &.Eva .item .img,
+        &.إيفا .item .img {
+            @include respond(350) {
+                width: 260px !important;
+                height: 260px !important;
+            }
+        }
+
+        &.Alejandro .item .img,
+        &.أليخاندرو .item .img {
+            @include respond(350) {
+                width: 300px !important;
+                height: 300px !important;
+            }
+        }
+
+        &.Lydia .item .img,
+        &.ليديا .item .img {
+            @include respond(350) {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            @include respond(850) {
+                width: 250px !important;
+                height: 250px !important;
+            }
+        }
+
+        &.Marina .item,
+        &.مارينا .item {
+            .img {
+                @include respond(350) {
+                    width: 200px !important;
+                    height: 200px !important;
+                }
+                @include respond(850) {
+                    width: 250px !important;
+                    height: 250px !important;
+                }
+            }
+        }
+    }
+
+    /* Popup */
+    .popup[data-popup-name="character"] {
+        @include position($p: fixed, $l: 0%, $t: 0%, $z: 100);
+        @include createEle($w: 100%, $h: 100%);
+        display: none;
+        backdrop-filter: blur(10px);
+        &.arabic {
+            p {
+                direction: rtl;
+            }
+        }
+        &.active {
+            @include flex;
+            animation: pulseIn 0.6s ease forwards;
+        }
+        &.show {
+            opacity: 1;
+        }
+        .box {
+            @include createEle($w: 650px, $h: 650px);
+            margin: 0px;
+            @include flex;
+            flex-direction: column;
+            @include respond(350) {
+                @include createEle($w: 320px, $h: 400px);
+            }
+            @include respond(650) {
+                @include createEle($w: 400px, $h: 510px);
+            }
+            @include respond(850) {
+                @include createEle($w: 490px, $h: 530px);
+            }
+            @include respond(1050) {
+                @include createEle($w: 520px, $h: 520px);
+            }
+            .character-img {
+                width: 70%;
+                height: 70%;
+                @include respond(350) {
+                    @include createEle($w: 80%, $h: 65%);
+                }
+                @include respond(850) {
+                    @include createEle($w: 70%, $h: 70%);
+                }
+                &.Aaron {
+                    @include respond(350) {
+                        @include createEle($w: 80%, $h: 56%);
+                    }
+                    @include respond(850) {
+                        @include createEle($w: 70%, $h: 60%);
+                    }
+                    @include respond(1050) {
+                        @include createEle($w: 70%, $h: 65%);
+                    }
+                }
+                margin: auto;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            p {
+                padding: 20px;
+                font-size: 14px;
+                @include respond(350) {
+                    padding: 10px;
+                    font-size: 9px;
+                    margin: 0;
+                }
+                @include respond(650) {
+                    font-size: 11px;
+                }
+                @include respond(850) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

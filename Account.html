@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <meta name="author" content="habiba">
+    <meta name="description" content="writer books website">
+    <meta name="keywords" content="Home , writer , books , characters , account">
+    <link rel="shortcut icon" href="images/favIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/plugins/all.min.css">
+    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- icons nav for responsive -->
+    <nav class="icons d-lg-none">
+        <ul class="navbar-nav ms-lg-auto mx-auto mb-lg-2 mb-lg-0">
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="index.html"><i class="fa-solid fa-house d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="Books.html" class=""><i class="fa-solid fa-book d-lg-none d-block  me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="Characters.html" class=""><i class="fa-solid fa-masks-theater d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href=" Writer.html" class=""><i class="fa-solid fa-feather-pointed d-lg-none d-block me-3""></i></a>
+            </li>
+            <li class=" nav-item d-flex ">
+                        <a href=" Account.html" class="active" aria-current="page" class=""><i
+                            class="fa-solid fa-user d-lg-none d-block me-3"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- navbar -->
+    <nav class="navbar text-light text-center navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-5"><img src="images/favIcon.png" alt="" class="img-fluid"></a>
+            <ul type="none" class="icon d-lg-none mt-3 ">
+                <li class="theme icon me-3">
+                    <div class="mode icon"></div>
+                    <i class="fa-solid fa-moon icon me-3"></i><i class="fa-solid icon fa-sun"></i>
+                </li>
+                <li> <button class="btn-lang icon">Ar</button></li>
+
+            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="Books.html">Books</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="Characters.html">Characters</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class=" nav-link fw-3" href="Writer.html">Writer</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class=" nav-link fw-3 active" aria-current="page" href="Account.html">Account</a>
+                    </li>
+                    <li class="theme me-5 me-lg-4 me-xl-5">
+                        <div class="mode"></div>
+                        <i class="fa-solid fa-moon me-3"></i><i class="fa-solid fa-sun"></i>
+                    </li>
+                    <li class=""> <button class="btn-lang">العربية</button></li>
+                    <li class="setting d-none nav-item dropdown">
+                        <i class="fa-solid fa-gear dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li id="logoutBtn" class="ps-2">Logout</li>
+                            <hr>
+                            <li id="deleteAccountBtn" class="ps-2">Delete Account</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- account section -->
+    <div id="Account">
+
+        <!-- sign in board -->
+        <div class="login">
+            <div class="images">
+                <img src="images/Login/login6.png" alt="">
+                <div class="login-board">
+                    <img src="images/Login/login1.png" class="board" alt="">
+                    <p id="showSignup">Sign Up</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- sign up board -->
+        <div class="logout">
+            <div class="images">
+                <img src="images/Login/login6.png" alt="">
+                <div class="logout-board">
+                    <img src="images/Login/login1.png" class="board" alt="">
+                    <p id="showSignin">Sign In</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- forms -->
+        <div class="orbit-container">
+            <div class="orbit">
+
+                <!-- sign-up form -->
+                <form class="signup-form" action="">
+                    <img class="mb-2" src="images/favIcon.png" alt="">
+                    <label class="mb-2" for="UserName">User Name</label>
+                    <input class="mb-3" type="text" id="UserName" name="username" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert alert-danger text-start d-none username-alert" role="alert">
+                        This field is required
+                    </div>
+                    <label class="mb-2" for="Email">Email</label>
+                    <input class="mb-3" type="email" id="Email" name="email" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert email-alert alert-danger text-start d-none" role="alert">
+                        This field is required
+                    </div>
+                    <label class="mb-2" for="Password">Password</label>
+                    <input class="mb-3" type="password" id="Password" name="password" autocomplete="off"
+                        data-valid="false" required>
+                    <div class="alert alert-danger password-alert text-start d-none" role="alert">
+                        This field is required
+                    </div>
+                    <div class="profile-upload">
+                        <label for="profileImage">Profile Picture</label>
+                        <input type="file" id="profileImage" accept="image/*" required>
+                        <div class="alert alert-danger text-start d-none" role="alert">
+                            This field is required
+                        </div>
+                        <div class="preview">
+                            <img id="previewImg" src="" alt="Preview">
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-2 py-2">Sign Up</button>
+                </form>
+
+                <!-- sign-in form -->
+                <form class="signin-form">
+                    <img class="mb-3" src="images/favIcon.png" alt="">
+                    <label class="mb-2" for="UserName">User Name</label>
+                    <input class="mb-3" type="text" id="UserName" name="username" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert alert-danger text-start d-none username-alert" role="alert">
+                        This field is required
+                    </div>
+                    <div class="alert-msg d-none" id="signinUserAlert">Invalid username</div>
+                    <label class="mb-2" for="Email">Email</label>
+                    <input class="mb-3" type="email" id="Email" name="email" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert email-alert alert-danger text-start d-none" role="alert">
+                        This field is required
+                    </div>
+                    <div class="alert-msg d-none" id="signinEmailAlert">Invalid Email</div>
+                    <label class="mb-2" for="Password">Password</label>
+                    <input class="mb-3" type="password" id="Password" name="password" autocomplete="off"
+                        data-valid="false" required>
+                    <div class="alert alert-danger password-alert text-start d-none" role="alert">
+                        This field is required
+                    </div>
+                    <div class="alert-msg d-none" id="signinPassAlert">Incorrect password</div>
+                    <button type="submit" class="mt-4 py-2">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--  profile section -->
+    <div id="Your-profile">
+        <div class="profile">
+            <div class="profile-pic"></div>
+            <h3 class="pt-4 pb-5">UserName</h3>
+
+            <ul type="none" class="mb-5" id="menuTabs">
+                <li class="me-5 active ps-0" data-target="notifications">Notification</li>
+                <li data-target="messages">Messages</li>
+            </ul>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="notifications tab-content active" id="notifications">
+                        <p>You will receive notifications about every update from the writer</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="message tab-content d-none" id="messages">
+                        <p>You have no messages</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/jQuery.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/account.js"></script>
+</body>
+
+</html>

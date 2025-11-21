@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتب</title>
+    <meta name="author" content="habiba">
+    <meta name="description" content="writer books website">
+    <meta name="keywords" content="الرئيسية, الكاتب, الكتب, الشخصيات, الحساب">
+    <link rel="shortcut icon" href="images/favIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/plugins/all.min.css">
+    <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- icons nav for responsive -->
+    <nav class="icons d-lg-none">
+        <ul class="navbar-nav ms-lg-auto mx-auto mb-lg-2 mb-lg-0">
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="indexAr.html"><i class="fa-solid fa-house d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="BooksAr.html"><i class="fa-solid fa-book d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="CharactersAr.html"><i class="fa-solid fa-masks-theater d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex me-lg-5 me-4">
+                <a href="WriterAr.html"><i class="fa-solid fa-feather-pointed d-lg-none d-block me-3"></i></a>
+            </li>
+            <li class="nav-item d-flex">
+                <a href="AccountAr.html" class="active"><i class="fa-solid fa-user d-lg-none d-block me-3"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- navbar-->
+    <nav class="navbar text-light text-center navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand me-5"><img src="images/favIcon.png" alt="" class="img-fluid"></a>
+            <ul type="none" class="icon d-lg-none mt-3">
+                <li class="theme icon me-3">
+                    <div class="mode icon"></div>
+                    <i class="fa-solid fa-moon icon me-3"></i><i class="fa-solid icon fa-sun"></i>
+                </li>
+                <li> <button class="btn-lang icon">En</button></li>
+            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="indexAr.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="BooksAr.html">الكتب</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="CharactersAr.html">الشخصيات</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3" href="WriterAr.html">الكاتبة</a>
+                    </li>
+                    <li class="nav-item d-flex me-5 me-lg-4 me-xl-5">
+                        <a class="nav-link fw-3 active" aria-current="page" href="AccountAr.html">الحساب</a>
+                    </li>
+                    <li class="theme me-5 me-lg-4 me-xl-5">
+                        <div class="mode"></div>
+                        <i class="fa-solid fa-moon me-3"></i><i class="fa-solid fa-sun"></i>
+                    </li>
+                    <li> <button class="btn-lang">English</button></li>
+                    <li class="setting d-none nav-item dropdown">
+                        <i class="fa-solid fa-gear dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li id="logoutBtn" class="ps-2">تسجيل الخروج</li>
+                            <hr>
+                            <li id="deleteAccountBtn" class="ps-2">ّحذف الحساب</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- account section -->
+    <div id="Account">
+        <!-- sign in board -->
+        <div class="login">
+            <div class="images">
+                <img src="images/Login/login6.png" alt="">
+                <div class="login-board">
+                    <img src="images/Login/login1.png" class="board" alt="">
+                    <p id="showSignup" class="signup-ar">إنشاء حساب</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- sign up board -->
+        <div class="logout">
+            <div class="images">
+                <img src="images/Login/login6.png" alt="">
+                <div class="logout-board">
+                    <img src="images/Login/login1.png" class="board" alt="">
+                    <p id="showSignin" class="signin-ar">تسجيل الدخول</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- forms -->
+        <div class="orbit-container">
+            <div class="orbit">
+
+                <!-- sign-up form -->
+                <form class="signup-form" dir="rtl" action="">
+                    <img class="mb-2" src="images/favIcon.png" alt="">
+                    <label class="mb-2" for="UserName">الاسم</label>
+                    <input class="mb-3" type="text" id="UserName" name="username" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert alert-danger text-start d-none username-alert" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <label class="mb-2" for="Email">البريد الالكتروني</label>
+                    <input class="mb-3" type="email" id="Email" name="email" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert email-alert alert-danger text-start d-none" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <label class="mb-2" for="Password">الرقم السري</label>
+                    <input class="mb-3" type="password" id="Password" name="password" autocomplete="off"
+                        data-valid="false" required>
+                    <div class="alert alert-danger password-alert text-start d-none" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <div class="profile-upload">
+                        <label for="profileImage">صورة الملف الشخصي</label>
+                        <input type="file" id="profileImage" accept="image/*" required>
+                        <div class="alert alert-danger text-start d-none" role="alert">
+                            هذا الحقل مطلوب
+                        </div>
+                        <div class="preview">
+                            <img id="previewImg" src="" alt="Preview">
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-2 py-2">إنشاء حساب</button>
+                </form>
+
+                <!-- sign-in form -->
+                <form dir="rtl" class="signin-form">
+                    <img class="mb-3" src="images/favIcon.png" alt="">
+                    <label class="mb-2" for="UserName">الاسم</label>
+                    <input class="mb-3" type="text" id="UserName" name="username" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert alert-danger text-start d-none username-alert" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <div class="alert-msg d-none" id="signinUserAlert">اسم المستخدم غير صالح</div>
+                    <label class="mb-2" for="Email">البريد الالكتروني</label>
+                    <input class="mb-3" type="email" id="Email" name="email" autocomplete="off" data-valid="false"
+                        required>
+                    <div class="alert email-alert alert-danger text-start d-none" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <div class="alert-msg d-none" id="signinEmailAlert">البريد الإلكتروني غير صالح</div>
+                    <label class="mb-2" for="Password">الرقم السري</label>
+                    <input class="mb-3" type="password" id="Password" name="password" autocomplete="off"
+                        data-valid="false" required>
+                    <div class="alert alert-danger password-alert text-start d-none" role="alert">
+                        هذا الحقل مطلوب
+                    </div>
+                    <div class="alert-msg d-none" id="signinPassAlert">كلمة المرور غير صحيحة</div>
+                    <button type="submit" class="mt-4 py-2">تسجيل الدخول</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--  profile section -->
+    <div id="Your-profile">
+        <div class="profile">
+            <div class="profile-pic"></div>
+            <h3 class="pt-4 pb-5"></h3>
+            <ul type="none" class="mb-5" id="menuTabs">
+                <li class="me-5 active ps-0" data-target="notifications">الاشعارات</li>
+                <li data-target="messages">الرسائل</li>
+            </ul>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="notifications tab-content active" id="notifications">
+                        <p dir="rtl">ستتلقى إشعارات عن كل تحديث من الكاتبة.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="message tab-content d-none" id="messages">
+                        <p dir="rtl">ليس لديك رسائل.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/jQuery.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/account.js"></script>
+</body>
+
+</html>

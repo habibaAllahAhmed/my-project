@@ -1,0 +1,188 @@
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes moons {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes background-img {
+  0% {
+    background-image: url(../images/home/bg1.jpeg);
+  }
+  16% {
+    background-image: url(../images/home/bg2.jpeg);
+  }
+  33% {
+    background-image: url(../images/home/bg3.jpeg);
+  }
+  49% {
+    background-image: url(../images/home/bg4.jpeg);
+  }
+  65% {
+    background-image: url(../images/home/bg5.jpeg);
+  }
+  81% {
+    background-image: url(../images/home/bg6.jpeg);
+  }
+  100% {
+    background-image: url(../images/home/bg1.jpeg);
+  }
+}
+
+@keyframes rotateEnergy {
+  from {
+    transform: rotateX(45deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(45deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    color: #e45a92;
+    filter: blur(2px);
+  }
+  5%,
+  95% {
+    color: #111;
+    filter: blur(0px);
+    text-shadow: none;
+  }
+}
+
+@keyframes burn {
+  0% {
+    text-shadow:
+      0 0 5px #ff0000,
+      0 0 10px #ff4d4d;
+    color: #ff4d4d;
+  }
+  50% {
+    text-shadow:
+      0 0 25px #ff0000,
+      0 0 50px #ff4d4d;
+    color: #ff1a1a;
+  }
+  100% {
+    text-shadow: 0 0 10px #660000;
+    color: #a30000;
+  }
+}
+
+@keyframes moving {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(20deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes pulseGlow {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(12);
+    opacity: 0;
+  }
+}
+
+@keyframes flames {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showWord {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showvid {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

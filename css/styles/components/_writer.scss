@@ -1,0 +1,442 @@
+@use "../abstracts" as *;
+
+/* writer section */
+#Writer {
+    margin-top: 50px;
+    color: var(--text-color);
+    overflow: hidden;
+    @include respond(850) {
+        margin-top: 0px;
+    }
+    /* writer profile */
+    .container {
+        @include respond(850) {
+            max-width: 90%;
+        }
+        .row {
+            .part {
+                /* writer info */
+                &:nth-of-type(1) {
+                    .name {
+                        margin: 30px 0px 0px 0px;
+                        @include respond(350) {
+                            margin: 60px auto 0px;
+                            padding-left: 30px;
+                        }
+                        @include respond(650) {
+                            padding-left: 65px;
+                        }
+                        @include respond(850) {
+                            padding-left: 0px;
+                        }
+                        @include respond(1050) {
+                            margin: 90px auto 0px;
+                        }
+                        h2 {
+                            color: #e45a92;
+                            font-size: 4rem;
+                            @include respond(350) {
+                                font-size: 3rem;
+                            }
+
+                            span {
+                                display: table-cell;
+                                margin: 10px;
+                                padding: 5px;
+                                animation: animate 3s ease infinite;
+                                &:nth-of-type(2) {
+                                    animation-delay: 0.3s;
+                                }
+                                &:nth-of-type(3) {
+                                    animation-delay: 0.6s;
+                                }
+                                &:nth-of-type(4) {
+                                    animation-delay: 0.9s;
+                                }
+                                &:nth-of-type(5) {
+                                    animation-delay: 1.2s;
+                                }
+                            }
+                        }
+                    }
+
+                    .quote-container {
+                        .quote {
+                            font-size: 16px;
+                            @include respond(350) {
+                                font-size: 13px;
+                                padding: 0px 45px;
+                            }
+                            @include respond(650) {
+                                font-size: 15px;
+                                padding: 0px 0px 0px 60px;
+                            }
+                            @include respond(850) {
+                                padding: 0px;
+                            }
+                            color: var(--text-color);
+                            letter-spacing: 2px;
+                            text-shadow: 0 0 20px var(--second-color);
+
+                            span {
+                                color: #ff4d4d;
+                                animation: burn 3s infinite alternate ease-in-out;
+                            }
+                        }
+
+                        & > p.info {
+                            z-index: 2;
+                            border-radius: 20px;
+                            color: var(--text-color);
+                            font-size: 14px;
+                            @include respond(350) {
+                                width: 75%;
+                                font-size: 12px;
+                            }
+                            @include respond(650) {
+                                font-size: 13px;
+                            }
+                            @include respond(850) {
+                                width: 100%;
+                            }
+                            @include respond(1050) {
+                                font-size: 14px;
+                            }
+                            line-height: 1.5;
+                            letter-spacing: 0.5px;
+                            text-align: left;
+                        }
+                    }
+                }
+                /* writer picture */
+                &:nth-of-type(2) {
+                    @include flex;
+                    margin-bottom: 30px;
+                    .profile-scene {
+                        position: relative;
+                        @include distance($w: 320px, $h: 320px);
+                        @include flex;
+                        perspective: 900px;
+                        @include respond(350) {
+                            @include distance($w: 280px, $h: 280px);
+                        }
+                        @include respond(850) {
+                            @include distance($w: 300px, $h: 300px);
+                        }
+                        @include respond(1050) {
+                            @include distance($w: 320px, $h: 320px);
+                        }
+
+                        .energy-orbit {
+                            position: absolute;
+                            @include distance($w: 400px, $h: 400px);
+                            @include respond(350) {
+                                @include distance($w: 300px, $h: 300px);
+                            }
+                            @include respond(850) {
+                                @include distance($w: 330px, $h: 330px);
+                            }
+                            @include respond(1050) {
+                                @include distance($w: 400px, $h: 400px);
+                            }
+                            border: 2px solid rgba(255, 0, 120, 0.4);
+                            border-radius: 50%;
+                            filter: blur(4px);
+                            animation: rotateEnergy 8s linear infinite;
+
+                            &.delay {
+                                @include distance($w: 400px, $h: 400px);
+                                @include respond(350) {
+                                    @include distance($w: 300px, $h: 300px);
+                                }
+                                @include respond(850) {
+                                    @include distance($w: 330px, $h: 330px);
+                                }
+                                @include respond(1050) {
+                                    @include distance($w: 400px, $h: 400px);
+                                }
+                                border-color: var(--glow-color);
+                                animation-delay: -3s;
+                            }
+                        }
+
+                        .profile-glow {
+                            position: absolute;
+                            width: 280px;
+                            height: 280px;
+                            @include respond(350) {
+                                width: 250px;
+                                height: 250px;
+                            }
+                            @include respond(850) {
+                                width: 270px;
+                                height: 270px;
+                            }
+
+                            @include respond(1050) {
+                                width: 280px;
+                                height: 280px;
+                            }
+                            border-radius: 50%;
+                            background: radial-gradient(circle, rgba(255, 0, 150, 0.4), transparent 70%);
+                            filter: blur(40px);
+                            animation: pulse 3s ease-in-out infinite;
+                        }
+
+                        .profile-container {
+                            @include distance($w: 250px, $h: 250px);
+                            @include respond(350) {
+                                @include distance($w: 220px, $h: 220px);
+                            }
+                            @include respond(1050) {
+                                @include distance($w: 250px, $h: 250px);
+                            }
+                            border-radius: 50%;
+                            overflow: hidden;
+                            transform-style: preserve-3d;
+                            transition: transform 0.2s ease;
+                            box-shadow: 0 0 30px rgba(255, 0, 120, 0.3);
+
+                            .profile-pic {
+                                @include distance($w: 100%, $h: 100%);
+                                object-fit: cover;
+                                transform: scale(1.05);
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    button {
+        border-radius: 25px;
+        padding: 10px 15px;
+        transition: all 0.3s;
+        @include respond(350) {
+            font-size: 10px;
+        }
+        @include respond(650) {
+            font-size: 11px;
+        }
+        @include respond(850) {
+            font-size: 13px;
+        }
+    }
+
+    /* social-media accounts */
+    .social-media {
+        @include flex;
+        gap: 2rem;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        .icon-box {
+            position: relative;
+            @include distance($w: 50px, $h: 50px);
+            border-radius: 50%;
+            background: var(--first-color);
+            box-shadow: 0 0 25px rgba(255, 0, 120, 0.1);
+            @include flex;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            &:hover {
+                &::before {
+                    opacity: 1;
+                    animation: pulseGlow 2s ease-in-out infinite alternate;
+                }
+                transform: scale(1.15);
+                box-shadow: 0 0 40px rgba(255, 0, 150, 0.4);
+                animation: none; /* توقف الدوران أثناء الهوفر */
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                @include distance($w: 70%, $h: 70%);
+                background: conic-gradient(
+                    from 0deg,
+                    rgba(255, 0, 120, 0.8),
+                    rgba(255, 255, 255, 0.2),
+                    rgba(255, 0, 120, 0.8)
+                );
+                filter: blur(20px);
+                opacity: 0;
+                transition: all 0.5s ease;
+                border-radius: 50%;
+                z-index: 1;
+            }
+            @include respond(350) {
+                @include distance($w: 40px, $h: 40px);
+            }
+            @include respond(1050) {
+                @include distance($w: 50px, $h: 50px);
+            }
+
+            i {
+                font-size: 25px;
+                z-index: 2;
+                transition: all 0.4s ease;
+                @include respond(350) {
+                    font-size: 20px;
+                }
+                @include respond(1050) {
+                    font-size: 25px;
+                }
+            }
+            &.instagram i {
+                color: #e1306c;
+            }
+            &.facebook i {
+                color: #0088cc;
+            }
+            &.tiktok i {
+                color: #000;
+                filter: drop-shadow(1px 1px 4px #fff);
+                font-weight: 600;
+            }
+            &.wattpad i {
+                color: #ff500a;
+            }
+        }
+    }
+
+    /* overlay */
+    #transitionOverlay {
+        position: fixed;
+        inset: 0;
+        @include flex;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+
+        .white-fill {
+            position: absolute;
+            inset: 0;
+            background: #111;
+            transform: scaleY(0);
+            transform-origin: 50% 100%;
+            opacity: 0;
+            transition:
+                transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1),
+                opacity 0.12s linear;
+            z-index: 10;
+        }
+
+        .centerHint {
+            position: relative;
+            z-index: 20;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition:
+                opacity 0.25s ease 0.65s,
+                transform 0.35s ease 0.65s;
+        }
+
+        &.active {
+            pointer-events: auto;
+            opacity: 1;
+            visibility: visible;
+            .white-fill {
+                transform: scaleY(1);
+                opacity: 1;
+                transition-delay: 0.45s;
+            }
+            .centerHint {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+form {
+    @include flex;
+    flex-direction: row;
+    margin: auto;
+    .input-wrapper {
+        position: relative;
+        width: 300px;
+        @include respond(350) {
+            width: 190px;
+        }
+        @include respond(1050) {
+            width: 300px;
+        }
+        label {
+            color: #ff5ca2;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 18px;
+            @include respond(350) {
+                font-size: 13px;
+            }
+            @include respond(1050) {
+                font-size: 18px;
+            }
+            &.books {
+                color: #3b82f6;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid var(--text-color);
+            background: var(--first-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            @include respond(350) {
+                width: 90%;
+                padding: 7px 10px;
+            }
+            @include respond(650) {
+                width: 100%;
+                padding: 10px 20px;
+            }
+            @include respond(1050) {
+                font-size: 18px;
+            }
+            outline: none;
+            transition: all 0.3s ease;
+            &.writer:focus {
+                border-color: #ff5ca2;
+                background: var(--first-color);
+                box-shadow: 0 0 15px rgba(255, 92, 162, 0.3);
+            }
+        }
+    }
+    button {
+        @include createEle($w: 40px, $h: 40px);
+        padding: 10px !important;
+        @include flex;
+        @include respond(350) {
+            button {
+                @include createEle($w: 30px, $h: 30px);
+            }
+            @include respond(350) {
+                button {
+                    @include createEle($w: 40px, $h: 40px);
+                }
+                @include respond(1050) {
+                    font-size: 18px;
+                }
+                i {
+                    color: white;
+                    font-size: 15px;
+                    @include respond(350) {
+                        font-size: 12px;
+                    }
+                    @include respond(350) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

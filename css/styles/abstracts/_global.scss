@@ -1,0 +1,74 @@
+@use "mixin" as *;
+
+:root {
+    --text-color: #fff;
+    --main-color: #000;
+    --first-color: rgba(255, 255, 255, 0.05);
+    --ins-color: wheat;
+    --second-color: linear-gradient(90deg, #fff, #ddd);
+    --charcters-color: #c9b8ff;
+    --glow-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode {
+    --text-color: #000;
+    --main-color: #f8fafc;
+    --first-color: rgba(0, 0, 0, 0.8);
+    --second-color: linear-gradient(90deg, #bbb, #bbb);
+    --ins-color: rgb(211, 159, 63);
+    --charcters-color: #6650b3;
+    --glow-color: rgba(255, 0, 200, 0.9);
+}
+
+body {
+    background-color: var(--main-color);
+    .stop-scroll {
+        overflow-y: hidden;
+    }
+    &.no-scroll {
+        overflow: hidden;
+    }
+    transition: all 0.5s ease;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    button {
+        position: relative;
+        background: linear-gradient(135deg, #2e0000, #4b0000);
+        color: #fff;
+        font-size: 13px;
+        letter-spacing: 1px;
+        padding: 12px 28px;
+        transform: scale(1);
+        border: 2px solid #fff;
+        border-radius: 50px;
+        text-transform: uppercase;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            @include position($l: -100%, $t: 0);
+            @include createEle($w: 100%, $h: 100%);
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            color: var(--text-color);
+            transform: scale(1.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.2),
+                0 0 40px #2e0000;
+            background: linear-gradient(135deg, #4b0000, #2e0000);
+            letter-spacing: 1.5px;
+            &::before {
+                left: 100%;
+            }
+        }
+    }
+}

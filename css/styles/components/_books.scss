@@ -1,0 +1,725 @@
+@use "../abstracts" as *;
+
+/* background symbols */
+.background {
+    position: fixed;
+    inset: 0; // يمين + شمال + فوق + تحت
+    width: 100%;
+    height: 100%;
+    z-index: -1; // تبقى في الخلفية
+    pointer-events: none;
+    overflow: hidden;
+    .symbol {
+        font-size: 20px;
+        opacity: 1;
+        animation: moving linear infinite;
+
+        &:nth-child(1) {
+            @include position($l: 5%, $t: 5%);
+            font-size: 26px;
+            animation-duration: 12s;
+        }
+        &:nth-child(2) {
+            @include position($l: 25%, $t: 20%);
+            font-size: 30px;
+            animation-duration: 15s;
+        }
+        &:nth-child(3) {
+            @include position($l: 50%, $t: 10%);
+            font-size: 24px;
+            animation-duration: 18s;
+        }
+        &:nth-child(4) {
+            @include position($l: 70%, $t: 30%);
+            font-size: 28px;
+            animation-duration: 20s;
+        }
+        &:nth-child(5) {
+            @include position($l: 85%, $t: 15%);
+            font-size: 22px;
+            animation-duration: 14s;
+        }
+        &:nth-child(6) {
+            @include position($l: 10%, $t: 60%);
+            font-size: 30px;
+            animation-duration: 16s;
+        }
+        &:nth-child(7) {
+            @include position($l: 35%, $t: 75%);
+            font-size: 26px;
+            animation-duration: 19s;
+        }
+        &:nth-child(8) {
+            @include position($l: 55%, $t: 65%);
+            font-size: 28px;
+            animation-duration: 17s;
+        }
+        &:nth-child(9) {
+            @include position($l: 75%, $t: 80%);
+            font-size: 24px;
+            animation-duration: 13s;
+        }
+        &:nth-child(10) {
+            @include position($l: 90%, $t: 50%);
+            font-size: 20px;
+            animation-duration: 18s;
+        }
+    }
+}
+
+/* books section */
+#Books {
+    margin-top: 75px;
+    color: var(--text-color);
+    overflow: hidden;
+    .books-section {
+        padding: 80px 0;
+        text-align: center;
+
+        /* title */
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            @include respond(350) {
+                font-size: 24px;
+            }
+            @include respond(650) {
+                font-size: 29px;
+            }
+        }
+        .row {
+            .part {
+                .book-card {
+                    width: fit-content;
+                    background-color: #1a1a1a;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    transition:
+                        transform 0.4s ease,
+                        box-shadow 0.4s ease;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover {
+                        transform: translateY(-10px);
+                        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+                    }
+                    @include respond(350) {
+                        margin: auto;
+                    }
+                    .book-info {
+                        padding: 20px;
+                        h3 {
+                            margin-bottom: 10px;
+                            font-size: 21px;
+                            color: #fff;
+                        }
+                        p {
+                            font-size: 14px;
+                            color: #fff;
+                        }
+                    }
+                    .img {
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        width: 380px;
+                        height: 460px;
+                        @include respond(350) {
+                            @include createEle($w: 305px, $h: 370px);
+                        }
+                        transition-duration: 0.5s;
+                        margin: auto;
+                    }
+                    button {
+                        font-size: 10px;
+                        padding: 10px 25px;
+                    }
+                }
+                &:nth-of-type(1) .book-card .img {
+                    background-image: url(../images/books/bloodlines.jpeg);
+                }
+                &:nth-of-type(2) .book-card .img {
+                    background-image: url(../images/books/kcover.jpeg);
+                }
+                &:nth-of-type(3) .book-card .img {
+                    background-image: url(../images/books/revenge.jpeg);
+                }
+            }
+        }
+    }
+}
+
+/* book popup*/
+.popup {
+    color: #fff;
+    @include position($p: fixed, $l: 0%, $t: 0%);
+    overflow-y: auto;
+    @include createEle($w: 100%, $h: 100%);
+    background-color: var(--main-color);
+    opacity: 0;
+    display: none;
+    transform: scale(0.7);
+    transition: 0.3s ease;
+    &.arabic {
+        ul {
+            direction: rtl;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            text-align: left;
+            li {
+                width: 100%;
+                p {
+                    text-align: start !important;
+                }
+            }
+        }
+    }
+    &.active {
+        display: block;
+        animation: pulseIn 0.6s ease forwards;
+    }
+    &.show {
+        opacity: 1;
+    }
+    .box {
+        margin: 30px auto;
+        margin-top: 120px;
+        border: 2px solid var(--text-color);
+        filter: drop-shadow(2px 2px 20px var(--text-color));
+        border-radius: 5px;
+        width: 50%;
+        background-color: #1a1a1a;
+        @include respond(350) {
+            width: 80%;
+            margin: 80px auto;
+        }
+        @include respond(650) {
+            width: 70%;
+        }
+        .item1 {
+            padding: 20px;
+            text-align: center;
+            p {
+                font-size: 13px;
+                @include respond(650) {
+                    font-size: 18px;
+                }
+            }
+            .img {
+                border-radius: 10px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                @include createEle($w: 255px, $h: 340px);
+                margin: auto;
+                @include respond(350) {
+                    @include createEle($w: 230px, $h: 300px);
+                }
+                @include respond(850) {
+                    @include createEle($w: 255px, $h: 340px);
+                }
+            }
+            .status {
+                padding: 8px 15px;
+                border-radius: 15px;
+                font-size: 17px;
+                letter-spacing: 1px;
+                width: fit-content;
+                margin: auto;
+                color: white;
+                border: none;
+                @include respond(350) {
+                    padding: 5px 10px;
+                    font-size: 13px;
+                }
+                &.Completed,
+                &.مكتملة {
+                    background-color: #a89ec9;
+                }
+                &.Ongoing,
+                &.مستمرة {
+                    background-color: #ffb84d;
+                }
+            }
+        }
+        .item2 {
+            .parts {
+                h5 {
+                    @include respond(350) {
+                        font-size: 18px;
+                    }
+                }
+                i {
+                    @include respond(350) {
+                        font-size: 18px;
+                    }
+                }
+                .seeAllBtn {
+                    &.Kiara {
+                        display: none !important;
+                    }
+
+                    &.Revenge {
+                        display: none !important;
+                    }
+                    @include respond(350) {
+                        font-size: 12px;
+                        padding: 7px 13px !important;
+                    }
+                }
+            }
+        }
+        ul {
+            border-top: 1px solid white;
+            padding-top: 15px;
+            li:hover {
+                cursor: pointer;
+            }
+            @include respond(350) {
+                font-size: 12px;
+            }
+            @include respond(650) {
+                font-size: 14px;
+            }
+        }
+        hr {
+            width: 100%;
+            height: 1px;
+            color: gray;
+        }
+    }
+}
+
+/* brief of books section */
+#Explore {
+    @include flex;
+    overflow: hidden;
+    /* title*/
+    h2 {
+        color: var(--text-color);
+        text-align: center;
+        @include respond(350) {
+            font-size: 20px;
+        }
+        @include respond(450) {
+            font-size: 22px;
+        }
+        @include respond(650) {
+            font-size: 27px;
+        }
+        @include respond(1050) {
+            font-size: 32px;
+        }
+    }
+
+    /* books*/
+    .wrapper {
+        position: relative;
+        @include createEle($w: 56rem, $h: 39rem);
+        padding: 2rem;
+        perspective: 250rem;
+        animation: show-animate 2s forwards;
+        @include respond(350) {
+            @include createEle($w: 25rem, $h: 18rem);
+        }
+        @include respond(650) {
+            @include createEle($w: 38rem, $h: 26rem);
+        }
+        @include respond(850) {
+            @include createEle($w: 47rem, $h: 32rem);
+        }
+        @include respond(1050) {
+            @include createEle($w: 56rem, $h: 39rem);
+        }
+
+        .book {
+            position: relative;
+            @include createEle($w: 100%, $h: 100%);
+            display: flex;
+            perspective: 250rem;
+            p {
+                @include respond(350) {
+                    font-size: 8px;
+                }
+                @include respond(650) {
+                    font-size: 11px;
+                }
+                @include respond(850) {
+                    font-size: 12px;
+                }
+                @include respond(1050) {
+                    font-size: 14px;
+                }
+            }
+            h3,
+            h4 {
+                @include respond(350) {
+                    font-size: 10px;
+                }
+                @include respond(650) {
+                    font-size: 16px;
+                }
+                @include respond(850) {
+                    font-size: 18px;
+                }
+                @include respond(1050) {
+                    font-size: 21px;
+                }
+            }
+            .book-page {
+                @include createEle($w: 50%, $h: 100%);
+                position: absolute;
+                background: var(--second-color);
+                box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+                display: flex;
+                padding: 2rem;
+                .page-front,
+                .page-back {
+                    @include position($l: 0%, $t: 0%);
+                    @include createEle($w: 100%, $h: 100%);
+                    @include flex;
+                    flex-direction: column;
+                    background: var(--second-color);
+                    padding: 1.5rem 2rem;
+                }
+
+                /* right page */
+                &.page-right {
+                    @include position($l: 0%);
+                    transform-style: preserve-3d;
+                    transform-origin: right;
+                    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    &.turn {
+                        transform: rotateY(180deg);
+                    }
+                }
+                .page-front {
+                    transform: rotateY(0deg) translateZ(1px);
+                    .cards {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        margin-top: 20px;
+                        .card {
+                            color: white;
+                            @include createEle($w: 110px, $h: 190px);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            border-radius: 5px;
+                            transition: all 0.4s ease;
+                            @include flex;
+                            &:nth-of-type(1) {
+                                background-image: url(../images/books/war.jpeg);
+                                margin-right: 10px;
+                            }
+                            &:nth-of-type(2) {
+                                background-image: url(../images/books/love.jpeg);
+                                margin-right: 10px;
+                            }
+                            &:nth-of-type(3) {
+                                background-image: url(../images/books/truth.jpeg);
+                            }
+                            p {
+                                opacity: 0;
+                                transition: opacity 0.4s ease;
+                            }
+
+                            @include respond(350) {
+                                @include createEle($w: 30px, $h: 50px);
+                            }
+                            @include respond(650) {
+                                @include createEle($w: 60px, $h: 100px);
+                            }
+                            @include respond(850) {
+                                @include createEle($w: 80px, $h: 130px);
+                            }
+                            @include respond(1050) {
+                                @include createEle($w: 110px, $h: 190px);
+                            }
+                            &:hover {
+                                transform: scale(1.1) rotateY(10deg);
+                                filter: brightness(1.2) contrast(1.1);
+                                box-shadow:
+                                    0 0 30px #2e0000,
+                                    0 0 60px #ff0000;
+                                filter: saturate(1.3);
+                                p {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+
+                    &.covering {
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        transform-origin: right;
+                    }
+
+                    &.covering.bloodlines {
+                        background-image: url(../images/books/bloodlines.jpeg);
+                    }
+
+                    &.covering.revenge {
+                        background-image: url(../images/books/revenge.jpeg);
+                    }
+
+                    &.covering.kiara {
+                        background-image: url(../images/books/lcover.png);
+                    }
+                }
+
+                .page-back {
+                    transform: rotateY(180deg) translateZ(1px);
+                    &.familyChoice.show {
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        &.firstchoice {
+                            background-image: url(../images/books/johnson.jpeg);
+                        }
+                        &.secondchoice {
+                            background-image: url(../images/books/vladmir.jpeg);
+                        }
+                        &.thirdchoice {
+                            background-image: url(../images/books/maddox.jpeg);
+                        }
+                    }
+
+                    .back-btn {
+                        @include position($l: 50%, $b: 5%);
+                        transform: translateX(-50%);
+                        background: #2e0000;
+                        color: #fff;
+                        border: 2px solid #fff;
+                        border-radius: 50px;
+                        padding: 8px 20px;
+                        font-size: 1rem;
+                        @include flex;
+                        gap: 8px;
+                        display: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        &:hover {
+                            background: #fff;
+                            color: #2e0000;
+                            transform: translateX(-50%) scale(1.05);
+                        }
+
+                        @include respond(350) {
+                            font-size: 9px;
+                            padding: 4px 8px;
+                        }
+                        @include respond(1050) {
+                            font-size: 1rem;
+                        }
+                    }
+                    .buttons {
+                        margin-top: 20px;
+                        @include flex;
+                    }
+
+                    button {
+                        @include respond(350) {
+                            font-size: 6px;
+                            padding: 5px 8px;
+                        }
+                        @include respond(650) {
+                            font-size: 8px;
+                            padding: 7px 13px;
+                        }
+                        @include respond(850) {
+                            font-size: 9px;
+                            padding: 8px 15px;
+                        }
+                        @include respond(1050) {
+                            font-size: 13px;
+                            padding: 12px 28px;
+                        }
+                        &.showbtn {
+                            display: block;
+                        }
+                    }
+
+                    .textlight {
+                        color: white;
+                        margin-bottom: 10px;
+                    }
+
+                    .hide {
+                        display: none;
+                    }
+                }
+
+                /* next -prev button */
+                .nextprev-btn {
+                    @include position($l: 1.5rem, $b: 0.9rem);
+                    @include createEle($w: 2rem, $h: 2rem);
+                    cursor: pointer;
+                    font-size: 1rem;
+                    color: gray;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: 0.5s;
+                    @include respond(350) {
+                        @include createEle($w: 1.6rem, $h: 1.6rem);
+                        @include position($l: 10px, $b: 0.5rem);
+                        font-size: 0.8rem;
+                    }
+                    @include respond(1050) {
+                        @include createEle($w: 2rem, $h: 2rem);
+                        @include position($l: 1.5rem, $b: 0.9rem);
+                    }
+                    &.back {
+                        right: 1.5rem;
+                        left: initial;
+                        @include respond(350) {
+                            right: 0px;
+                        }
+                        @include respond(650) {
+                            right: 10px;
+                        }
+                    }
+                }
+
+                .arabic-chevron {
+                    @include position($l: 23rem, $b: 0.9rem);
+                    @include respond(350) {
+                        @include position($l: 8rem, $b: 0rem);
+                        font-size: 0.8rem;
+                    }
+                    @include respond(650) {
+                        @include position($l: 15rem, $b: 0.5rem);
+                    }
+                    @include respond(850) {
+                        @include position($l: 19rem, $b: 0.5rem);
+                    }
+                    @include respond(1050) {
+                        @include position($l: 23rem, $b: 0.9rem);
+                    }
+                    &.back {
+                        right: 23rem;
+                        left: initial;
+                        @include respond(350) {
+                            @include position($r: 8rem, $b: 0rem);
+                        }
+                        @include respond(650) {
+                            @include position($r: 14.5rem, $b: 0.5rem);
+                        }
+                        @include respond(850) {
+                            @include position($r: 19rem, $b: 0.5rem);
+                        }
+                        @include respond(1050) {
+                            @include position($r: 23rem, $b: 0.9rem);
+                        }
+                    }
+                }
+            }
+        }
+
+        .book[data-book-name="kiara"] .book-page .page-front,
+        .book[data-book-name="kiara"] .book-page .page-back {
+            display: flex;
+            justify-content: start !important;
+        }
+
+        .book[data-book-name="kiara"] .book-page .page-front p,
+        .book[data-book-name="kiara"] .book-page .page-back p {
+            font-size: 20px;
+            font-weight: 400;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            @include respond(350) {
+                font-size: 8px;
+            }
+            @include respond(650) {
+                font-size: 11px;
+            }
+            @include respond(850) {
+                font-size: 12px;
+            }
+            @include respond(1050) {
+                font-size: 15px;
+            }
+        }
+
+        .book.arabic {
+            transform: translateX(27%);
+            .book-page,
+            .page-front.covering,
+            .page-back {
+                left: 0%; // خليها بالنسبة للـ wrapper
+                right: 0%;
+                margin: 0 auto; // يحطها في النص
+            }
+
+            .page-right {
+                transform-origin: left;
+                &.turn {
+                    transform: rotateY(-180deg);
+                }
+            }
+
+            .page-back {
+                transform: rotateY(-180deg) translateZ(1px);
+            }
+
+            .cover.cover-right {
+                transform-origin: right;
+                &.turn {
+                    transform: rotateY(180deg);
+                }
+            }
+
+            .cover.cover-left {
+                transform-origin: left;
+            }
+        }
+
+        .cover {
+            @include position($l: 0%, $t: 0%);
+            @include createEle($w: 100%, $h: 100%);
+            transform-origin: right;
+            &.cover-left {
+                @include position($l: 0%, $t: 0%, $z: -1);
+                @include createEle($w: 100%, $h: 100%);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                transform-origin: right;
+
+                &.bloodlines {
+                    background-image: url(../images/books/bloodlines.jpeg);
+                }
+
+                &.revenge {
+                    background-image: url(../images/books/revenge.jpeg);
+                }
+
+                &.kiara {
+                    background-image: url(../images/books/kcover.jpeg);
+                }
+            }
+
+            &.cover-right {
+                z-index: 100;
+                transform-origin: left;
+                transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+                &.turn {
+                    transform: rotateY(-180deg);
+                }
+            }
+        }
+    }
+}

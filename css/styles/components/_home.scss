@@ -1,0 +1,570 @@
+@use "../abstracts" as *;
+
+// home page
+#Home {
+    position: relative;
+    margin-top: 71px;
+    @include respond(350) {
+        margin-top: 0px;
+    }
+    @include respond(650) {
+        margin-top: 40px;
+    }
+    @include respond(1050) {
+        margin-top: 100px;
+    }
+    overflow: hidden;
+    position: relative;
+
+    // messages section
+    #Messages {
+        @include flex;
+        flex-direction: column;
+        height: 100vh;
+        background: var(--main-color);
+        color: var(--text-color);
+        font-family: "Lora", serif;
+        @include respond(350) {
+            height: 95vh;
+        }
+        @include respond(650) {
+            height: 100vh;
+        }
+        @include respond(1350) {
+            margin-bottom: 150px;
+        }
+
+        // title
+        h2 {
+            @include respond(1350) {
+                margin-top: 100px;
+            }
+        }
+
+        // messages
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 180px);
+            grid-template-rows: repeat(3, 180px);
+            row-gap: 30px;
+            column-gap: 60px;
+            position: relative;
+            @include respond(350) {
+                column-gap: 20px;
+                row-gap: 20px;
+                grid-template-columns: repeat(3, 80px);
+                grid-template-rows: repeat(3, 80px);
+            }
+            @include respond(450) {
+                column-gap: 20px;
+                row-gap: 20px;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+            }
+            @include respond(650) {
+                grid-template-columns: repeat(3, 140px);
+                grid-template-rows: repeat(3, 140px);
+            }
+            @include respond(1050) {
+                grid-template-columns: repeat(3, 180px);
+                grid-template-rows: repeat(3, 180px);
+                row-gap: 30px;
+                column-gap: 60px;
+            }
+
+            .message,
+            .clock-box {
+                @include flex;
+                position: relative;
+                text-align: center;
+                transition:
+                    all 0.3s ease,
+                    box-shadow 0.3s ease;
+                cursor: pointer;
+                background: var(--first-color);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                width: 220px;
+                animation: fadeUp 0.7s ease forwards;
+                @include respond(350) {
+                    width: 90px;
+                }
+                @include respond(450) {
+                    width: 110px;
+                }
+                @include respond(650) {
+                    width: 150px;
+                }
+                @include respond(1050) {
+                    width: 220px;
+                }
+            }
+            .message:nth-child(1) {
+                animation-delay: 0.2s;
+            }
+            .message:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+            .message:nth-child(3) {
+                animation-delay: 0.6s;
+            }
+            .message:nth-child(4) {
+                animation-delay: 0.8s;
+            }
+            .clock-box {
+                animation-delay: 1s;
+            }
+            .message:nth-child(6) {
+                animation-delay: 1.2s;
+            }
+            .message:nth-child(7) {
+                animation-delay: 1.4s;
+            }
+            .message:nth-child(8) {
+                animation-delay: 1.6s;
+            }
+            .message:nth-child(9) {
+                animation-delay: 1.8s;
+            }
+
+            .message {
+                .img img {
+                    @include createEle($w: 100px, $h: 100px);
+                    border-radius: 50%;
+                    margin-bottom: 15px;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+                    filter: drop-shadow(2px 2px 10px var(--text-color));
+                    @include respond(350) {
+                        @include createEle($w: 50px, $h: 50px);
+                    }
+                    @include respond(450) {
+                        @include createEle($w: 60px, $h: 60px);
+                    }
+                    @include respond(850) {
+                        @include createEle($w: 70px, $h: 70px);
+                    }
+                    @include respond(1050) {
+                        @include createEle($w: 80px, $h: 80px);
+                    }
+                }
+                &:hover .img img {
+                    transform: scale(1.1) rotate(5deg);
+                }
+                p {
+                    display: none;
+                    position: absolute;
+                    font-size: 9px;
+                    padding: 10px;
+                    font-family: "Lora", serif;
+                    transition: opacity 1s ease;
+                    opacity: 0.95;
+                    color: #fff;
+                    @include respond(350) {
+                        font-size: 5px;
+                    }
+                    @include respond(450) {
+                        font-size: 7px;
+                    }
+                }
+            }
+
+            .clock-box {
+                text-align: center;
+                transition: all 0.5s ease;
+                .clock {
+                    opacity: 1;
+                    transition: opacity 0.8s ease;
+                }
+                .time {
+                    font-size: 20px;
+                    filter: drop-shadow(2px 2px 15px var(--text-color));
+                    padding: 0px 0px 10px 0px;
+                    color: #fff;
+                    @include respond(350) {
+                        font-size: 8px;
+                        padding: 0px 0px 5px 0px;
+                    }
+                    @include respond(450) {
+                        font-size: 10px;
+                    }
+                    @include respond(650) {
+                        font-size: 14px;
+                    }
+                    @include respond(1050) {
+                        font-size: 20px;
+                    }
+                }
+                p {
+                    font-size: 13px;
+                    color: #fff;
+                    opacity: 0.8;
+                    margin-bottom: 0;
+                    @include respond(350) {
+                        font-size: 6px;
+                        padding: 0px 10px;
+                    }
+                    @include respond(450) {
+                        font-size: 8px;
+                    }
+                    @include respond(650) {
+                        font-size: 12px;
+                    }
+                    @include respond(1050) {
+                        font-size: 13px;
+                    }
+                }
+                &.hide .clock {
+                    opacity: 0;
+                }
+                .message-text {
+                    opacity: 0;
+                    transition: opacity 0.8s ease;
+                    position: absolute;
+                    font-size: 14px;
+                    text-align: center;
+                    color: #fff;
+                    max-width: 180px;
+                    @include respond(350) {
+                        font-size: 6px;
+                        padding: 0px 10px;
+                    }
+                    @include respond(450) {
+                        font-size: 8px;
+                    }
+                    @include respond(650) {
+                        font-size: 11px;
+                    }
+                    @include respond(1050) {
+                        font-size: 14px;
+                    }
+                    &.show-message {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    // instruction section
+    #Instructions {
+        position: relative;
+        z-index: 10;
+        margin: 100px 0px 50px;
+        @include flex;
+        align-items: center;
+        color: var(--text-color);
+        transition: background 1.2s ease;
+        @include respond(350) {
+            margin: 0px 0px 50px;
+        }
+        @include respond(650) {
+            margin: 0px 0px 50px;
+        }
+        @include respond(850) {
+            margin: 100px 0px 50px;
+        }
+        @include respond(1250) {
+            margin: 150px 0px 50px;
+        }
+
+        // introduction
+        .intro {
+            @include flex;
+            flex-direction: column;
+            text-align: center;
+            @include respond(350) {
+                margin-bottom: 80px;
+            }
+            @include respond(850) {
+                margin-bottom: 40px;
+            }
+            @include respond(1050) {
+                margin: 60px 0px 0px;
+            }
+            transition: opacity 0.8s ease;
+            .ourPlace {
+                @include createEle($w: 650px, $h: 370px);
+                @include flex;
+                transition-duration: 0.5s;
+                border: 3px solid var(--text-color);
+                @include respond(350) {
+                    @include createEle($w: 300px, $h: 190px);
+                    @include flex;
+                    p {
+                        font-size: 11px;
+                    }
+                }
+                @include respond(450) {
+                    @include createEle($w: 350px, $h: 230px);
+                    @include flex;
+                }
+                @include respond(650) {
+                    @include createEle($w: 450px, $h: 260px);
+                    @include flex;
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                @include respond(850) {
+                    @include createEle($w: 550px, $h: 300px);
+                    @include flex;
+                    p {
+                        font-size: 15px;
+                    }
+                }
+                @include respond(1050) {
+                    @include createEle($w: 600px, $h: 330px);
+                    @include flex;
+                }
+                animation: background-img 18s linear infinite forwards;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                &:hover {
+                    box-shadow:
+                        rgba(255, 255, 255, 0.6) 0px 0px 0px 3px,
+                        rgba(245, 245, 245, 0.5) 0px 0px 0px 6px,
+                        rgba(230, 230, 230, 0.4) 0px 0px 0px 9px,
+                        rgba(210, 210, 210, 0.3) 0px 0px 0px 12px,
+                        rgba(190, 190, 190, 0.2) 0px 0px 0px 15px;
+                }
+            }
+            .enter-btn {
+                margin-top: 2rem;
+                padding: 12px 30px;
+                background: transparent;
+                border: 2px solid var(--text-color);
+                color: var(--text-color);
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                &:hover {
+                    background: var(--text-color);
+                    color: var(--main-color);
+                }
+                @include respond(350) {
+                    padding: 7px 10px;
+                    font-size: 9px;
+                }
+                @include respond(650) {
+                    padding: 10px 15px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        // instructions
+        .instructions-grid {
+            @include position($l: 0, $t: 0, $z: 0);
+            @include flex;
+            @include createEle($w: 100%, $h: 100%);
+            margin-bottom: 100px;
+            display: none;
+            grid-template-columns: repeat(2, 320px);
+            gap: 2.5rem;
+            opacity: 0;
+            @include respond(350) {
+                grid-template-columns: repeat(2, 130px);
+                column-gap: 30px;
+                padding-right: 17px;
+            }
+            @include respond(450) {
+                grid-template-columns: repeat(2, 150px);
+            }
+            @include respond(650) {
+                grid-template-columns: repeat(2, 210px);
+                column-gap: 40px;
+            }
+            @include respond(1050) {
+                grid-template-columns: repeat(2, 250px);
+                column-gap: 60px;
+            }
+            transform: translateY(30px);
+            transition: all 1s ease;
+            &.active {
+                display: grid;
+                z-index: 100;
+            }
+            &.show {
+                opacity: 1;
+                transition-duration: 1s;
+                transform: translateY(0);
+            }
+
+            .card {
+                background: var(--ins-color);
+                @include createEle($w: 310px, $h: 230px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 14px;
+                padding: 20px;
+                backdrop-filter: blur(6px);
+                box-shadow: 0 0 25px var(--ins-color);
+                transform: translateY(20px);
+                opacity: 0;
+                transition: all 0.8s ease;
+                @include respond(350) {
+                    @include createEle($w: 150px, $h: 150px);
+                    padding: 10px 0px;
+                }
+                @include respond(450) {
+                    @include createEle($w: 170px, $h: 170px);
+                    padding: 10px 0px;
+                }
+                @include respond(650) {
+                    @include createEle($w: 240px, $h: 190px);
+                }
+                @include respond(1050) {
+                    @include createEle($w: 300px, $h: 210px);
+                }
+                &.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                h3 {
+                    margin-bottom: 12px;
+                    font-size: 19px;
+                    @include respond(350) {
+                        margin-bottom: 12px;
+                        font-size: 10px;
+                    }
+                    @include respond(450) {
+                        font-size: 13px;
+                    }
+                    @include respond(650) {
+                        font-size: 16px;
+                    }
+                    @include respond(1050) {
+                        font-size: 19px;
+                        padding-left: 10px;
+                    }
+                }
+
+                ol {
+                    padding-left: 20px;
+                    li {
+                        font-size: 14px;
+                        margin-bottom: 5px;
+                        opacity: 0.9;
+                        @include respond(350) {
+                            font-size: 7px;
+                            padding-left: 3px;
+                        }
+                        @include respond(450) {
+                            font-size: 8px;
+                        }
+                        @include respond(650) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            .back {
+                @include position($p: relative, $l: 87%, $b: 20%);
+                width: fit-content;
+                padding: 10px 20px;
+                border-radius: 40px;
+                background: transparent;
+                border: 2px solid var(--text-color);
+                color: var(--text-color);
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                &:hover {
+                    background: var(--text-color);
+                    color: var(--main-color);
+                }
+                @include respond(350) {
+                    padding: 5px 10px;
+                    font-size: 10px;
+                    bottom: 60%;
+                }
+                @include respond(650) {
+                    padding: 10px 15px;
+                    font-size: 12px;
+                    left: 95%;
+                }
+                @include respond(1050) {
+                    left: 105%;
+                }
+            }
+        }
+    }
+}
+
+body {
+    &.dark-mode {
+        #instructions .intro .ourplace:hover {
+            box-shadow:
+                rgba(0, 0, 0, 0.6) 0px 0px 0px 3px,
+                rgba(0, 0, 0, 0.5) 0px 0px 0px 6px,
+                rgba(0, 0, 0, 0.4) 0px 0px 0px 9px,
+                rgba(0, 0, 0, 0.3) 0px 0px 0px 12px,
+                rgba(0, 0, 0, 0.2) 0px 0px 0px 15px;
+        }
+    }
+}
+
+.loading {
+    @include position($p: fixed, $l: 0%, $t: 0%, $z: 1000);
+    @include createEle($w: 100%, $h: 100%);
+    color: white;
+    @include flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 71px;
+    background-color: #000;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+    .portal {
+        @include createEle($w: 40px, $h: 40px);
+        position: absolute;
+        @include position($p: absolute, $l: 50%, $t: 50%);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        box-shadow:
+            0 0 20px #6f5bff,
+            0 0 40px #8f7aff,
+            0 0 80px #a597ff;
+        animation: expand 1s ease-out forwards;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+        opacity: 0;
+        animation: flames 2s ease forwards 1.2s;
+
+        .word {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: showWord 0.6s forwards;
+            &.word:nth-child(1) {
+                animation-delay: 0.6s;
+            }
+            &.word:nth-child(2) {
+                animation-delay: 1.2s;
+            }
+            &.word:nth-child(3) {
+                animation-delay: 1.8s;
+            }
+            &.word:nth-child(4) {
+                animation-delay: 2.4s;
+            }
+            &.word:nth-child(5) {
+                animation-delay: 3s;
+            }
+            &.word:nth-child(6) {
+                animation-delay: 3.6s;
+            }
+        }
+    }
+
+    video {
+        @include createEle($w: 300px, $h: 300px);
+        border-radius: 100%;
+        opacity: 0;
+        animation: showvid 0.5s forwards 1s;
+    }
+}

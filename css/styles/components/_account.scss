@@ -1,0 +1,377 @@
+@use "../abstracts" as *;
+
+// navbar
+nav {
+    ul {
+        @include flex;
+        li:nth-of-type(6),
+        li.icon:nth-of-type(1) {
+            @include createEle($w: 70px, $h: 30px);
+            padding: 5px;
+            position: relative;
+            @include flex($jc: space-around);
+            border: 2px solid var(--text-color);
+            @include respond(350) {
+                border: 2px solid var(--text-color);
+            }
+            border-radius: 20px;
+            i:nth-of-type(1) {
+                color: #000;
+                z-index: 100;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            i:nth-of-type(2) {
+                color: yellow;
+                z-index: 100;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .mode {
+                content: "";
+                display: block;
+                @include position($p: absolute, $l: 4%, $t: 0);
+                @include createEle($w: 25px, $h: 25px);
+                border-radius: 100%;
+                background-color: #333;
+                transition: all 0.5s ease;
+                &:hover {
+                    cursor: pointer;
+                }
+                &.change {
+                    right: 4%;
+                    left: initial;
+                }
+            }
+        }
+        li:nth-of-type(7),
+        li.icon:nth-of-type(2) {
+            button.icon {
+                width: 20px;
+                @include flex;
+            }
+        }
+
+        li:nth-of-type(8) {
+            background-color: #000;
+            @include createEle($w: 30px, $h: 30px);
+            border-radius: 100%;
+            @include flex;
+            &:hover {
+                cursor: pointer;
+            }
+            i {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    .btn-lang {
+        background-color: #222;
+        color: #fff;
+        border: none;
+        padding: 6px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+        &:hover {
+            background-color: #555;
+        }
+    }
+}
+
+//  account section
+#Account {
+    @include flex;
+    margin: 200px 0px 400px;
+
+    //  sign in board
+    .login {
+        @include position($l: 10%, $t: 0%);
+        .images {
+            @include flex;
+            img {
+                width: 100px;
+                transform: translateY(45px);
+                @include respond(350) {
+                    width: 60px;
+                    transform: translateY(57px);
+                }
+                @include respond(1050) {
+                    width: 100px;
+                    transform: translateY(35px);
+                }
+                &.board {
+                    @include respond(350) {
+                        width: 80px;
+                    }
+                    @include respond(1050) {
+                        width: initial;
+                    }
+                }
+            }
+            .login-board {
+                @include position($l: -15%, $b: -55%);
+                @include respond(1050) {
+                    @include position($l: -10%, $b: -50%);
+                }
+                img {
+                    width: 130px;
+                    &.board {
+                        @include respond(350) {
+                            width: 80px;
+                        }
+                        @include respond(1050) {
+                            width: 120px;
+                        }
+                    }
+                }
+                p {
+                    color: #fff;
+                    z-index: 10;
+                    @include position($l: 30%, $b: -11%, $z: 100);
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &.signup-ar {
+                        @include position($l: 20%, $b: -11%, $z: 100);
+                    }
+                    @include respond(350) {
+                        font-size: 10px;
+                        bottom: -58% !important;
+                    }
+                    @include respond(1050) {
+                        font-size: 15px;
+                        bottom: -6% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    //  sign up board
+    .logout {
+        @include position($r: 10%, $t: 0%);
+        .images {
+            @include flex;
+            img {
+                width: 100px;
+                transform: translateY(45px);
+                @include respond(350) {
+                    width: 60px;
+                    transform: translateY(57px);
+                }
+                @include respond(1050) {
+                    width: 100px;
+                    transform: translateY(35px);
+                }
+            }
+            .logout-board {
+                @include position($r: -14%, $b: -55%);
+                @include respond(1050) {
+                    @include position($r: -10%, $b: -50%);
+                }
+                img {
+                    width: 130px;
+                    &.board {
+                        @include respond(350) {
+                            width: 80px;
+                        }
+                        @include respond(1050) {
+                            width: 120px;
+                        }
+                    }
+                }
+                p {
+                    color: #fff;
+                    @include position($r: 31%, $b: -11%, $z: 100);
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &.signin-ar {
+                        @include position($l: 14%, $b: -11%, $z: 100);
+                    }
+                    @include respond(350) {
+                        font-size: 10px;
+                        bottom: -58% !important;
+                    }
+                    @include respond(1050) {
+                        font-size: 15px;
+                        bottom: -6% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // forms
+    .orbit-container {
+        @include createEle($w: 300px, $h: 450px);
+        perspective: 1500px;
+        .orbit {
+            @include createEle($w: 100%, $h: 100%);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.5s ease;
+            @include respond(350) {
+                @include flex;
+                margin-top: 70px;
+            }
+            form {
+                position: absolute;
+                backface-visibility: hidden;
+                background-color: #111;
+                margin: auto;
+                width: 335px;
+                padding: 20px;
+                @include flex($ai: start);
+                flex-direction: column;
+                border-radius: 10px;
+                color: var(--text-color);
+                @include respond(350) {
+                    width: 200px;
+                    margin: auto;
+                    z-index: 1000;
+                }
+                @include respond(650) {
+                    width: 260px;
+                }
+                img {
+                    width: 60px;
+                    margin: auto;
+                    @include respond(350) {
+                        width: 40px;
+                    }
+                }
+                button {
+                    width: 100px;
+                    @include respond(350) {
+                        width: 85px;
+                        font-size: 11px;
+                    }
+                }
+                input {
+                    background-color: #555;
+                    border: 1px solid #fff;
+                    border-radius: 5px;
+                    width: 80%;
+                    color: #fff;
+                    @include respond(350) {
+                        width: 90%;
+                    }
+                }
+                label {
+                    color: #fff;
+                    @include respond(350) {
+                        font-size: 13px;
+                    }
+                }
+                &.signup-form {
+                    transform: rotateY(0deg) translateZ(220px);
+                    .profile-upload {
+                        label {
+                            font-weight: 600;
+                            display: block;
+                            margin-bottom: 8px;
+                        }
+                        input {
+                            margin-bottom: 15px;
+                        }
+                        .preview img {
+                            @include createEle($w: 120px, $h: 120px);
+                            border-radius: 50%;
+                            object-fit: cover;
+                            display: none;
+                            border: 2px solid #888;
+                        }
+                    }
+                }
+
+                &.signin-form {
+                    transform: rotateY(180deg) translateZ(220px);
+                    // alert
+                    .alert-msg {
+                        color: #ff3b3b;
+                        font-size: 14px;
+                        margin-top: -8px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  profile section
+#Your-profile {
+    padding-top: 100px;
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    display: none;
+
+    // profile img and name
+    .profile {
+        margin: auto;
+        @include flex;
+        flex-direction: column;
+        width: 50%;
+        .profile-pic {
+            border: 2px solid var(--text-color);
+            border-radius: 100%;
+            @include createEle($w: 200px, $h: 200px);
+            @include respond(350) {
+                @include createEle($w: 110px, $h: 110px);
+            }
+            @include respond(850) {
+                @include createEle($w: 160px, $h: 160px);
+            }
+        }
+        ul {
+            @include flex($jc: space-between);
+            width: 115%;
+            font-size: 16px;
+            @include respond(350) {
+                font-size: 12px;
+            }
+            padding: 0;
+            li {
+                &.active,
+                &:hover {
+                    cursor: pointer;
+                    text-shadow:
+                        0px 0px 10px #de0d59,
+                        0px 0px 20px #de0d59,
+                        0px 0px 40px #de0d59,
+                        0px 0px 80px #de0d59;
+                    color: #de0d59 !important;
+                }
+            }
+        }
+    }
+
+    // notifications and messages
+    .row {
+        width: 100vw;
+        .col-lg-6 {
+            transition-duration: 1s;
+            .tab-content {
+                transition: 0.4s ease;
+            }
+            p {
+                text-align: center;
+                &.show {
+                    opacity: 1;
+                }
+                @include respond(350) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
