@@ -15,10 +15,10 @@ books.forEach(function (book, index) {
                     <h3>${book.bookName}</h3>
                     <p  ${chekLang}>${book.sentence}</p>
                     <div class="buttons">
-                    <a href="#${book.class}">
                                                 <button class="read-btn me-3" onclick="openPopup('books');showBookPopup(${index})">
                             ${readText}
                         </button>
+                    <a href="#${book.class}">
                             <button class="read-btn explore">${exploreText}</button>
                         </a>
                     </div>
@@ -187,4 +187,5 @@ choices.forEach(choice => {
 });
 
 closeBtn.addEventListener("click", resetFamilyChoice);
+
 
