@@ -93,9 +93,9 @@ let heightOfNav = $("nav").outerHeight(true);
 
 $(".explore").click(function(e){
 
-    let targetId = $(this).closest("a").attr("href").substring(1); 
+    let targetId = $(this).closest("a").attr("href"); 
 
-    let targetOffset = $("#" + targetId).offset().top;
+    let targetOffset = $(targetId).offset().top;
 
     let scrollTo = targetOffset - heightOfNav - 100;
 
@@ -167,7 +167,7 @@ function handleFamilyChoice(choice) {
     p.classList.add("textlight");
     p.textContent = choice.text;
 
-    // -------- ضبط الاتجاه حسب اللغة --------
+    // --------  text lang handle -------
     let lang = localStorage.getItem("site-lang") || "en";
 
     if (lang === "ar") {
@@ -187,5 +187,6 @@ choices.forEach(choice => {
 });
 
 closeBtn.addEventListener("click", resetFamilyChoice);
+
 
 
