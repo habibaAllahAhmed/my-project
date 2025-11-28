@@ -53,29 +53,6 @@ Family4Link.addEventListener("click", function () {
 // show the Family1 character
 showFamily(Family1 , "Family1");
 
-// show the Family1 character
-Family1Link.addEventListener("click", function () {
-    showFamily(Family1 ,"Family1");
-});
-
-// show the Family2 character
-Family2Link.addEventListener("click", function () {
-    showFamily(Family2, "Family2");
-});
-
-// show the Family3 character
-Family3Link.addEventListener("click", function () {
-    showFamily(Family3 , "Family3");
-});
-
-// show the Family4 character
-Family4Link.addEventListener("click", function () {
-    showFamily(Family4 , "Family4");
-});
-
-// show the Family1 character
-showFamily(Family1 , "Family1");
-
 // show character Section
 function showFamily(families , nameOfSection) {
     let popupSection = nameOfSection;
@@ -117,3 +94,4 @@ function showFamilyPopup(index , popupSection) {
 
     showItemOfIndex();
         }
+
